@@ -1,10 +1,15 @@
 ## 📝 Instructions  
 
 1.- Create a function that generates a list of random cards with suits.
+#
 2.- Let the user specify how much random cards the website should generate using a text input.
+#
 3.- Add a "draw" button that when clicked it renders those cards on the website in a beautiful way.
+#
 4.- Add one "sort" button that sorts the cards using the bubble sorting algorithm.
+#
 5.- Save all the changes that you hard to do while sorting the list of cards in a new array.
+#
 6.- Display the entire log of changes one on top of each other.
 
 
