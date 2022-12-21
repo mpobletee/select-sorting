@@ -8,7 +8,7 @@ window.onload = function() {
   let btnSort = document.querySelector("#sort");
   let amount = document.querySelector("#amount");
   let contenedor = document.querySelector(".contenedor-cartas");
-  let bubbleDiv = document.querySelector(".bubbleSort");
+  let selectDiv = document.querySelector(".selectSort");
   let deck = [];
 
   const crearDeck = () => {
@@ -66,7 +66,7 @@ window.onload = function() {
 
   btnDraw.addEventListener("click", () => {
     contenedor.innerHTML = "";
-    bubbleDiv.innerHTML = "";
+    selectDiv.innerHTML = "";
     let cantidad = amount.value;
 
     if (cantidad > 0) {
@@ -104,7 +104,8 @@ window.onload = function() {
     }
     // console.log(arrValor);
 
-    let bubbleSort = arr => {
+    //BUBBLE SORTING
+    /* let bubbleSort = arr => {
       let wall = arr.length - 1; //we start the wall at the end of the array
       while (wall > 0) {
         let index = 0;
@@ -120,6 +121,22 @@ window.onload = function() {
         wall--; //decrease the wall for optimization
       }
       return arr;
+    }; */
+
+    //SELECT SORTING
+    const selectSort = arr => {
+      let min = 0;
+      while (min < arr.length - 1) {
+        for (let i = min + 1; i < arr.length; i++) {
+          if (arr[min] > arr[i]) {
+            let aux = arr[min];
+            arr[min] = arr[i];
+            arr[i] = aux;
+          }
+        }
+        min++;
+      }
+      return arr;
     };
 
     /* let sortListo = bubbleSort(arrValor);
@@ -132,7 +149,7 @@ window.onload = function() {
     } */
 
     // let sortedFinal = randomCard(arrValor);
-    bubbleSort(arrValor);
+    selectSort(arrValor);
     arrValor.forEach(element => {
       const divCartaSorted = document.createElement("div");
       divCartaSorted.classList.add("carta");
@@ -155,7 +172,7 @@ window.onload = function() {
       <div class="valor"> ${element} </div>
       `;
 
-      bubbleDiv.appendChild(divCartaSorted);
+      selectDiv.appendChild(divCartaSorted);
     });
   });
 };
